@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Material Design Icons-->
+    <link rel="stylesheet" href="../css/materialdesignicons.min.css" />
+
+    <!-- meine Einstellungen -->
+
+    <link rel="stylesheet" href="../css/app.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+
+    <title>Bestellvorgang</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon/favicon-32x32.png">
+    <link rel="manifest" href="./manifest/manifest.json">
+    <link rel="apple-touch-icon" sizes="120x120" href="./logo/logo_120x120.png">
+
+</head>
+
+<body class="bodyApp">
+
+
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-4" style="padding-top: 0.2rem;">
+                <button id="btnQuitOrder" type="button" class="btn"
+                    style="padding-left: 1rem; color: black;">Abbrechen</button>
+            </div>
+            <div class="col-8">
+                <h1>Bestellung</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="progress" style="height: 2rem;">
+                <div id="statusBar" class="progress-bar bg-success" style="width: 33%" role="progressbar"
+                    aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
+        <div class="container mt-3" id="containerMenue" style="display:block;">
+            <div class="row">
+                <div class="col-12 offset-md-3 col-md-6 ">
+                    <h5>Ausgewähltes Menü</h5>
+                </div>
+            </div>
+
+            <hr>
+            <div class="row">
+                <div class="col-12 offset-md-3 col-md-6 " id="colcontainerMenue">
+
+                </div>
+            </div>
+        </div>
+        <div class="container mt-3" id="containerLocation" style="display:none;">
+            <div class="row">
+                <div class="col-12 col-md-4 offset-md-3 ">
+                    <div class="form-group">
+                        <label for="location">
+                            <h6>Wählen Sie die Ausgabestelle aus</h6>
+                        </label>
+                        <select name="location" id="location" class="form-control form-control-sm">
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- <div class="container" id="containerAdditional" style="display:none">
+            <label id="labelAddProduct">Sie können Zusatzprodukte auswählen</label>
+            <div class="scroll" id="contProducts">
+
+            </div>
+
+        </div> -->
+        <div class="container scroll" id="containerAdditional" style="display:none">
+
+            <div class="row">
+                <div class="col-12 offset-md-3 col-md-6">
+                    <label id="labelAddProduct">Sie können Zusatzprodukte auswählen</label>
+                    <div id="contProducts">
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="container" id="containerSummaryTop" style="display: none;">
+            <h5 class="mt-2 text-center">Zusammenfassung</h5>
+            <div class="container mt-3">
+
+                <div class="row">
+                    <div class="col-6 col-md-2 offset-md-3">
+                        <h6>Gesamtkalorien: </h6>
+                    </div>
+                    <div class="col-6  ">
+                        <h6 id="totalCal"> </h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-md-2 offset-md-3 ">
+                        <h6>Gesamtpreis: </h6>
+                    </div>
+                    <div class="col-6  ">
+                        <h6 id="totalCost"></h6>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-md-2 offset-md-3 ">
+                        <h6>Ausgabestelle: </h6>
+                    </div>
+                    <div class="col-6  ">
+                        <h6 id="viewLocation"></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center mt-2">
+                <div class="col-12">
+                    <button id="btnSendOrder" style="box-shadow: 2px 2px 7px black;" type="button"
+                        class="btn btn-warning"><span class="mdi mdi-check-circle" style="font-size: 1.5rem; vertical-align: middle;"></span> Bestellung
+                        abschließen</button>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-3 scroll" id="containerSummaryContent" style="display:block">
+            <div class="row">
+                <div class="col-12 offset-md-3  col-md-6" id="rowcontainerSummaryContent">
+
+                </div>
+            </div>
+        </div>
+        <div id="modalLoading" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <p>Ermittle nächste Ausgabestelle</p>
+                            <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav style="background-color: transparent;" class="navbar navbar-expand-lg navbar-light fixed-bottom">
+            <button id="btnPrev" type="button" class="btn btn-primary float-left"
+                style=" display: none;padding-top: 0;padding-bottom: 0;"><span
+                    style="font-size: 1.8rem; padding-left: 0.5rem;vertical-align: middle;"
+                    class="mdi mdi-arrow-left-bold"></span> Zurück</button>
+            <button id="btnNext" type="button" class="btn btn-success float-right ml-auto"
+                style="display: block;padding-top: 0;padding-bottom: 0;">Weiter<span
+                    style="font-size: 1.8rem; padding-left: 0.5rem;vertical-align: middle;"
+                    class="mdi mdi-arrow-right-bold"></span> </button>
+        </nav>
+        <!-- <div class="row" style="position: fixed; bottom: 10px;">
+            <div class="col-3 col-sm-4 offset-2">
+                <button id="btnPrev" type="button" class="btn btn-primary" style="display: none;">Zurück</button>
+            </div>
+            <div class="col-3 col-sm-4 offset-2">
+                <button id="btnNext" type="button" class="btn btn-success">Weiter</button>
+
+            </div>
+        </div> -->
+
+
+
+        <script type="module" src="./js/order.js"></script>
+        <!-- <script type="module" src="./geolocation/script.js"></script> -->
+</body>
+<script>
+
+
+</script>
+
+</html>

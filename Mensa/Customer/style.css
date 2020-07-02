@@ -1,0 +1,91 @@
+
+@media(min-height: 1024px){
+    .container .scroll{
+        height: 65vh;
+        overflow-y: auto;
+    }
+}
+
+@media(max-height: 1000px){
+    .container .scroll {
+        height: 60vh;
+        overflow-y: auto;
+    }
+}
+@media(max-height: 680px){
+    .container .scroll {
+        height: 55vh;
+        overflow-y: auto;
+    }
+}
+@media(max-height: 650px){
+    .container .scroll {
+        height: 45vh;
+        overflow-y: auto;
+    }
+}
+
+.btn span.glyphicon {    			
+	opacity: 0;				
+}
+.btn.active span.glyphicon {				
+	opacity: 1;				
+}
+
+.myCard{
+   
+    width: 310px;
+    overflow-y: auto;
+
+}
+
+.table-report{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+  }
+  
+  .table-report  thead {
+    flex: 0 0 auto;
+  }
+  
+  .table-report tbody {
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .table-report  tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+  }
+  
+  
+  .table-report tbody{height: 400px; overflow-y: scroll;display:block;}
+  .table-report th { position: sticky; top: 0; }
+
+@media (min-width:576px){
+    .fixed-bottom{
+        position: fixed;
+        bottom:400px;
+        right: 150px;
+        left: 150px;
+    }
+}
+@media (min-width:1140px){
+    .fixed-bottom{
+        position: fixed;
+        bottom:400px;
+        right: 290px;
+        left: 290px;
+    }
+}
+@media (max-height:850px){
+    .fixed-bottom{
+        position: fixed;
+        bottom:10px;
+       
+    }
+}

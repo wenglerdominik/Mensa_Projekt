@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- Bootstrap -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script src="js/popper.min.js"></script>
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- Material Design Icons-->
+	<link rel="stylesheet" href="css/materialdesignicons.min.css" />
+
+	<!-- meine Einstellungen -->
+	<!--<script src="js/app.js"></script>-->
+	<link rel="stylesheet" href="css/app.css" />
+
+	<!-- <link rel="manifest" href="./manifest/manifest.json"> -->
+	<title>Login</title>
+	<link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon-32x32.png">
+	<script>
+
+
+	</script>
+</head>
+
+<body class="body-bg" style="   padding:0;
+margin: 0;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background-color:rgba(48, 48, 48, 0.8);">
+	<!--	<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="index.html"> <img class="logo" src="images/logo.png" alt=""></a>
+
+		<button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div id="my-nav" class="collapse navbar-collapse">
+			<ul class="navbar-nav mr-auto" id="ulNav">
+				<li class="nav-item ">
+					<a class="nav-link" href="index.html">Startseite</a>
+				</li>
+
+			</ul>
+			
+		</div>
+	</nav>-->
+	<!-- <div class="jumbotron jumbotron-bg" style="padding-bottom: 0.5rem;">
+		<h1 class="display-4">Willkommen bei PrintTECH 3D</h1>
+		<p class="lead">Bestellen Sie bequem Ihr Essen</p>
+		<hr class="my-4">
+		<p>Diese Programm wurde erstellt um Essensbestellungen in der Kantine zu tätigen. </p>
+		<p>Laufender Überblick über Ihre Bestellungen und Kosten.</p>
+		<p class="lead" style="margin-top:1.5rem">
+			<div class="row">
+				
+			</div>
+		</p>
+	</div> -->
+	<header>
+
+	</header>
+	<main>
+
+		<div style="position: fixed;">
+			<div class="centeredLogin">
+				<h1 class="text-center mt-5 mb-5">Willkomen im Kantinensystem vom PrintTECH 3D</h1>
+				<div class="container">
+					<div class="row mt-4 text-center">
+						<div class="col-12 col-sm-8 offset-sm-2">
+							<div class="form-group">
+								<label style="float: left;" for="nickname">Benutzername</label>
+								<input id="textNickname" type="text" class="form-control" id="nickname"
+									aria-describedby="emailHelp" placeholder="Benutzername">
+								<small id="emailHelp" class="form-text text-muted"></small>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-2 text-center">
+						<div class="col-12 col-sm-8 offset-sm-2">
+							<div class="form-group">
+								<label style="float: left;" for="nickname">Passwort</label>
+								<input id="textPassword" type="password" class="form-control" id="password"
+									aria-describedby="emailHelp" placeholder="Passwort">
+								<small id="emailHelp" class="form-text text-muted"></small>
+							</div>
+						</div>
+					</div>
+					<div class="row mt-1 text-center">
+						<div class="col-8 offset-2">
+							<p id="pLoginFailed" style="color: red;"></p>
+						</div>
+						<div class="col-8 offset-2">
+							<div class="form-group">
+								<button id="buttonLoginClick" type="button" class="btn btn-primary">Anmelden</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <div class=" text-center" style="top: 10%; left: 60%; position: absolute;">
+		<div class="col">
+			<button type="button" class="btn btn-outline-dark mt-2" data-toggle="modal"
+				data-target="#modalLogin">Anmelden</button>
+
+			<button type="button" class="btn btn-outline-dark mt-2" data-toggle="modal"
+				data-target="#modalRegister">Registrieren</button>
+		</div>
+	</div> -->
+
+	</main>
+
+	<footer id="footer">
+		<div class="container-fluid text-center text-md-left mt-2">
+			<div class="row">
+				<div class="col-md-6 mt-md-0 mt-3">
+					<h5 class="text-uppercase font-weight-bold">Über uns</h5>
+					<p>PrinTECH 3D ist eines der modernsten 3D-Druck Unternehmen in Europa.
+						Durch die Spezialisierung auf SLA-Technologie sind wir Vorreiter bei der Herstellung
+						sämtlicher SLA-Drucker.
+					</p>
+
+				</div>
+				<hr class="clearfix w-100 d-md-none pb-3">
+				<div class="col-md-3 mb-md-0 mb-3">
+					<h5 class="text-uppercase font-weight-bold">Standorte</h5>
+					<p>Altheim</p>
+					<p>Eggelsberg</p>
+					<p>Mattighofen</p>
+				</div>
+				<div class="col-md-3 mb-md-0 mb-3">
+					<h5 class="text-uppercase font-weight-bold">Links</h5>
+					<a href=""></a>
+					<a href=""></a>
+					<a href=""></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-copyright text-center py-3">© 2020 Copyright: WenglerSolutions</div>
+
+	</footer>
+
+
+	<script type="module" src="js/user.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+
+    <!-- Material Design Icons-->
+    <link rel="stylesheet" href="../css/materialdesignicons.min.css" />
+
+    <!-- meine Einstellungen -->
+    <script type="module" src="./js/app.js"></script>
+    <link rel="stylesheet" href="../css/app.css" />
+
+    <title>Menükalender</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon/favicon-32x32.png">
+    <link rel="manifest" href="./manifest/manifest.json">
+    <link rel="apple-touch-icon" sizes="120x120" href="./logo/logo_120x120.png">
+</head>
+
+<body class="bodyApp">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <a class="navbar-brand mr-1" href="month.html"> <img class="logo" src="../images/logo.png" alt=""></a>
+
+        <li class="nav-item dropdown order-lg-2 " style="top: -10px;">
+            <a id="username" class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <p id="usernumber" class="dropdown-item">Action</p>
+                <div class="dropdown-divider"></div>
+                <a id="btnLogout" class="dropdown-item" href="#">Abmelden</a>
+            </div>
+        </li>
+        <button type="button" class="btn p-0 pr-2 mr-1 order-lg-1" style="color: white;"
+            onclick="window.location.href='message.html'">
+            <i style="font-size: 1.5rem;" class="mdi mdi-email"></i>
+            <span id="notificationcount" style="top: -5px;" class="badge badge-light">0</span>
+        </button>
+
+        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto" id="ulNav">
+                <li class="nav-item ">
+                    <a class="nav-link App" href="month.html">Menü Kalender</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link App" href="monthReport.html">Bestellungen</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class=" container containerCalender" id="containerCalender">
+            <div class="month">
+                <ul>
+                    <li class="prev" id="prevMonth">&#10094;</li>
+                    <li class="next" id="nextMonth">&#10095;</li>
+                    <li id="calendar-head-month">asf<br>
+                        <span style="font-size:18px">2017</span>
+                    </li>
+                </ul>
+            </div>
+            <table class="table table-bordered mb-0" id="Calendar">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="th-calendar" data-day="1">Mo</th>
+                        <th class="th-calendar" data-day="2">Di</th>
+                        <th class="th-calendar" data-day="3">Mi</th>
+                        <th class="th-calendar" data-day="4">Do</th>
+                        <th class="th-calendar" data-day="5">Fr</th>
+
+                    </tr>
+                </thead>
+                <tbody id="calendar-body">
+                    <tr>
+
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <!-- <tr>
+							<th></th>
+						</tr> -->
+                </tfoot>
+            </table>
+
+        </div>
+    </main>
+
+    <footer id="footer">
+
+
+    </footer>
+
+    <script type="module" src="./js/month.js"></script>
+    <!-- <script src="script.js"></script> -->
+</body>
+<script>
+
+
+
+</script>
+
+</html>

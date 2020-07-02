@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+
+    <!-- Material Design Icons-->
+    <link rel="stylesheet" href="../css/materialdesignicons.min.css" />
+
+
+
+    <!--Start script-->
+    <script src="./js/app.js"></script>
+
+
+    <!-- Bootstrap Table -->
+    <link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table-locale-all.min.js"></script>
+    <script
+        src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+
+    <!-- meine Einstellungen -->
+
+    <link rel="stylesheet" href="../css/app.css" />
+</head>
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <div class=" text-white border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">
+                <div>
+                    <a class="nav-textHeader" href="orderView.html"><img class="logo" src="../images/logo.png">PrintTech
+                        3D</a>
+                </div>
+                <div class="mt-2">
+                    <span id="sidebarHeaderRole"></span>
+                </div>
+
+            </div>
+
+            <hr style="border-color: whitesmoke;">
+            <ul class="list-group list-group-flush" id="sidebarItemList">
+
+
+
+
+            </ul>
+        </div>
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+                <button class="btn bg-nav" id="menu-toggle"><span class="navbar-toggler-icon"></span></button>
+
+
+
+                <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="my-nav" class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto" id="ulNav">
+                        <li class="nav-item ">
+
+                        </li>
+                        <!---->
+
+
+                    </ul>
+
+                    <ul class="nav navbar-nav flex-row justify-content-between">
+                        <li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="settings"><i
+                                    class="fa fa-cog fa-fw fa-lg"></i></a></li>
+                        <li class="dropdown order-1">
+                            <button type="button" id="dropdownMenu1" data-toggle="dropdown"
+                                class="btn btn-outline-secondary dropdown-toggle"><span
+                                    id="username">Name</span></button>
+                            <ul class="dropdown-menu dropdown-menu-right mt-2">
+                                <li class="px-3 py-2">
+                                    <form class="needs-validation" novalidate>
+
+                                        <div class="form-group">
+                                            <button id="btnLogout" type="button"
+                                                class="btn btn-primary btn-block">Abmelden</button>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </nav>
+
+            <header>
+                <h5 class="text-center">
+                    Menü Ausgabe
+                </h5>
+                <div style="padding-left: 1.5rem;">
+                    <h5 id="headerLocationName"></h5>
+                    <h5 id="headerDate"></h5>
+                </div>
+
+            </header>
+            <main>
+
+                <div id="modalSetLocation" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static"
+                    aria-labelledby="my-modal-title" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="my-modal-title">Wählen Sie Ihren Arbeitsplatz aus</h5>
+
+                            </div>
+                            <div id="modalSetLocationBody" class="modal-body">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button id="btnSetLocation" type="button" class="btn btn-success">Weiter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <button id="btnSellProduct" type="button" class="btn btn-info">Zusatzprodukt
+                                verkaufen</button>
+                        </div>
+                    </div>
+                    <div id="modalSellProduct" class="modal fade " tabindex="-1" role="dialog"
+                        aria-labelledby="my-modal-title" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="my-modal-title">Zusatzprodukt verkaufen</h5>
+                                    <button class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table table-light" data-search="true" id="tableSellUser"
+                                        data-icons-prefix="mdi">
+                                        <thead class="thead-dark">
+                                            <tr>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table table-light" data-search="true" id="tableSellProducts"
+                                        data-icons-prefix="mdi">
+                                        <thead class="thead-dark">
+                                            <tr>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="btnOrderAdditional" type="button"
+                                        class="btn btn-success">Bestätigung</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <table class="table table-light table-striped" data-search="true" id="tableOrder"
+                        data-icons-prefix="mdi" data-detail-view-icon="true" data-detail-view="true"
+                        data-detail-view-by-click="false" data-detail-formatter="test" data-pagination="true"
+                        data-page-list="[10, 25, 50, 100, all]">
+                        <thead class="thead-dark">
+                            <tr>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </main>
+
+            <footer class="text-center">
+                Menü Ausgabe
+            </footer>
+        </div>
+    </div>
+
+
+
+
+    <script type="module" src="./js/orderView.js"></script>
+
+
+    <script>
+
+        function test(index, row) {
+            let html = [];
+
+            html.push('<p><b>Gebuchte Zusatzprodukte:</b></p>')
+            for (let product of row.listadditional) {
+                html.push('<p>' + product.addproductname + '</p>')
+            }
+            return html.join('')
+        }
+
+        function check(index, row) {
+            console.log(row);
+        }
+    </script>
+
+
+</body>
+
+
+</html>

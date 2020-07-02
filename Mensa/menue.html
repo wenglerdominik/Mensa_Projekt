@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Material Design Icons-->
+    <link rel="stylesheet" href="css/materialdesignicons.min.css" />
+
+    <!-- meine Einstellungen -->
+
+    <link rel="stylesheet" href="css/app.css" />
+
+    <!--Start script-->
+    <script src="js/app.js"></script>
+    <script>
+
+    </script>
+</head>
+<!-- 
+<li class="nav-Item"><a class="mdi mdi-speedometer"></a>
+    <span class="nav-text" data-toggle="collapse" href="#collapseMenue" aria-expanded="false"
+        aria-controls="collapse">Menü Verwaltung</span>
+    <div class="collapse" id="collapseMenue">
+        <ul class="nav-sub-item">
+            <li>
+                <a href="menue.html"><span class="mdi mdi-calendar-month mr-2"></span>Menü Kalender </a>
+            </li>
+            <li>
+                <a href="menueOrders.html"><span class="mdi mdi-clipboard-list-outline mr-2"></span>Bestellungen </a>
+            </li>
+            <li>
+                <a href=""> <span class="mdi mdi-cash-register mr-2"></span>Abrechnung</a>
+            </li>
+        </ul>
+    </div>
+</li> -->
+
+<body>
+    <div class="d-flex" id="wrapper">
+        <div class=" text-white border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">
+                <a class="nav-textHeader" href="menue.html"><img class="logo" src="images/logo.png">PrintTech 3D</a>
+            </div>
+            <hr style="border-color: whitesmoke;">
+            <ul class="list-group list-group-flush" id="sidebarItemList">
+
+
+
+
+            </ul>
+        </div>
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+                <button class="btn bg-nav" id="menu-toggle"><span class="navbar-toggler-icon"></span></button>
+
+                <button type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    class="btn btn-secondary dropdown-toggle ml-auto" style="color: whitesmoke;"><span
+                        id="username">Name</span></button>
+                <ul class="dropdown-menu dropdown-menu-right mt-2">
+                    <li class="px-3 py-2">
+                        <form class="needs-validation" novalidate>
+
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary btn-block" id="btnLogout">Abmelden</button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="container mt-4" style="background-color: whitesmoke;">
+                <div id="header"></div>
+
+                <div class="row">
+                    <div class="col-4">
+                        <button class="btn btn-outline-dark" id="prevMonth">Zurück</button>
+                    </div>
+                    <div class="col-4 text-center"><label id="actMonth"></label></div>
+                    <div class="col-4 text-right">
+                        <button class="btn btn-outline-dark" id="nextMonth">Vor</button>
+                    </div>
+                </div>
+                <div class="container-calender" id="containerCal">
+                </div>
+            </div>
+            <div id="modalMenue" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="mx-auto" id="modalDate"></h5>
+                            <button class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="container" id="containerMenue">
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button class="btn btn-info mx-auto" id="btnNewMenue">Neues Menü anlegen <span
+                                    class="mdi mdi-plus-thick"></span> </button>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module" src="./js/menue.js"></script>
+
+
+</body>
+<script>
+
+
+
+    function createMenu(sender) {
+        $('#modalMenue').modal('show');
+
+        let modal = document.getElementById('modalMenue');
+        modal.setAttribute('value', sender.id);
+        let stringEnd = sender.innerHTML.indexOf('<');
+        document.getElementById('modalDate').innerHTML = sender.innerHTML.slice(0, stringEnd);
+        sessionStorage.setItem('menueDate', sender.id);
+        let body = document.getElementById('containerMenue');
+        let menuesMonth = JSON.parse(sessionStorage.getItem('menuesMonth'));
+
+        body.innerHTML = '';
+        for (let i = 0; i < menuesMonth.length; i++) {
+            let y = new Date(menuesMonth[i].servedate).toLocaleDateString();
+            if (new Date(sender.id).toLocaleDateString() == y) {
+                let count = body.childElementCount + 1;
+                let btnId = sender.id;
+                let row = document.createElement('div');
+                row.classList = 'row';
+                let button = document.createElement('button');
+                button.setAttribute('onclick', "test(this)");
+                button.setAttribute('onclick', 'showMenueDetail(this)')
+                button.setAttribute('id', 'btnMenuCard_' + btnId)
+                // button.setAttribute('value', JSON.stringify(menuesMonth[i]))
+                button.setAttribute('data-menue', JSON.stringify(menuesMonth[i]))
+                button.setAttribute('data-menueno', count);
+                button.setAttribute('type', 'button');
+                button.classList = 'btn btn-sm btn-primary mt-2 mx-auto';
+                let span = '<span class="ml-5 mdi mdi-information-outline" style="font-size:1.5rem; vertical-align:middle"></span>'
+
+                // button.innerHTML = 'Menü: ' + menuesMonth[i].menuenumber;
+                button.innerHTML = 'Menü: ' + count + span;
+                switch (menuesMonth[i].type) {
+                    case 3:
+                        button.style.backgroundColor = 'red';
+                        break;
+                    case 4:
+                        button.style.backgroundColor = 'green';
+                        break;
+                    case 5:
+                        button.style.backgroundColor = 'khaki';
+                        break;
+                    default:
+                    // code block
+                }
+                row.appendChild(button);
+
+                body.appendChild(row);
+
+
+
+
+            }
+        }
+
+
+    }
+    function showMenueDetail(sender) {
+        let menue = sender.dataset.menue;
+        console.log(menue);
+        sessionStorage.setItem('menueDetail', menue);
+        sessionStorage.setItem('menueNo', sender.dataset.menueno);
+        //entfernen falls Probleme auftreten
+        //sessionStorage.setItem('menueDate', sender.dataset.menuedate.replace('btnMenuCard_', ''));
+        sessionStorage.setItem('menueDate', JSON.parse(sender.dataset.menue).servedate);
+
+        console.log(menue);
+        window.open('menueDetail.html', '_self');
+
+    }
+
+
+
+
+    document.getElementById('btnNewMenue').addEventListener('click', function () {
+        let count = document.getElementById('containerMenue').childElementCount;
+        sessionStorage.setItem('menueNo', count + 1);
+        window.open('newMenue2.html', '_self')
+
+    })
+
+
+
+    //#region User --> eingeloggter User speichern, beim Ausloggen SessionStorage clearen
+
+    let user = JSON.parse(sessionStorage.getItem('user'));
+    document.getElementById('username').innerHTML = 'Hallo ' + user.nickname;
+
+    function logout() {
+        sessionStorage.clear();
+        window.open('index.html', '_self');
+    }
+
+
+
+    //#endregion
+</script>
+
+</html>

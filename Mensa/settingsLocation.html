@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Material Design Icons-->
+    <link rel="stylesheet" href="css/materialdesignicons.min.css" />
+
+    <!-- meine Einstellungen -->
+
+    <link rel="stylesheet" href="css/app.css" />
+
+    <!--Start script-->
+    <script src="js/app.js"></script>
+    <title>Ausgabestellen</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon-32x32.png">
+
+    <script>
+
+
+    </script>
+</head>
+
+<body class="body-bg">
+    <div class="d-flex" id="wrapper">
+        <div class=" text-white border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">
+                <div>
+                    <a class="nav-textHeader" href="startpage.html"><img class="logo" src="images/logo.png">PrintTech
+                        3D</a>
+                </div>
+                <div class="mt-2">
+                    <span id="sidebarHeaderRole"></span>
+                </div>
+            </div>
+            <hr style="border-color: whitesmoke;">
+            <ul class="list-group list-group-flush" id="sidebarItemList">
+
+
+
+
+            </ul>
+        </div>
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+                <button class="btn bg-nav" id="menu-toggle"><span class="navbar-toggler-icon"></span></button>
+
+                <button type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    class="btn btn-secondary dropdown-toggle ml-auto" style="color: whitesmoke;"><span
+                        id="username">Name</span></button>
+                <ul class="dropdown-menu dropdown-menu-right mt-2">
+                    <li class="px-3 py-2">
+                        <form class="needs-validation" novalidate>
+
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary btn-block" id="btnLogout">Abmelden</button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+            <div class="container containerTable mt-4 pb-2">
+                <div class="col pt-2">
+                    <h1 class="text-center">Ausgabestellen Verwaltung</h1>
+                </div>
+                <div class="row mb-4">
+                    <div class="col">
+                        <div class="input-group">
+                            <button style="padding-top: 0.1rem; padding-bottom: 0.1rem;" type="button"
+                                class="btn btn-success" data-toggle="modal" id="btnNewLocation"
+                                data-target="#modalLocation"> Neue Ausgabestelle
+                                <span style="font-size: 1.5rem; vertical-align: middle;"
+                                    class="mdi mdi-home-plus"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <table class="table myTable table-striped table-responsive-sm">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Straße</th>
+                            <th>Postleitzahl</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                    <tfoot>
+
+                    </tfoot>
+                </table>
+            </div>
+
+
+            <div id="modalLocation" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-user="xy">
+                <div class="modal-dialog " role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 id="modalHeader"></h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input id="locationName" class="form-control form-control-sm" type="text"
+                                            name="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="my-input">Straße</label>
+                                        <input id="locationStreet" class="form-control form-control-sm" type="text"
+                                            name="">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="my-input">Postleitzahl</label>
+                                        <input id="locationPostcode" class="form-control form-control-sm" type="number"
+                                            name="">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12">
+                                    Notwendig für die automatische Standortbestimmung in der Kundenapp
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="my-input">Längengrad</label>
+                                        <input id="longitude" class="form-control form-control-sm" type="number"
+                                            name="">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label for="my-input">Breitengrad</label>
+                                        <input id="latitude" class="form-control form-control-sm" type="number" name="">
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <label id="lblState"> </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer bg-dark">
+                            <button id="btnCancel" type="button" class="btn btn-light mx-auto"
+                                data-dismiss="modal">Abbrechen</button>
+                            <button id="btnSave" type="button" class="btn btn-success mx-auto"
+                                disabled="true">Speichern</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script type="module" src="./js/settingsLocation.js"></script>
+
+
+</body>
+<script>
+
+    //#region User --> eingeloggter User speichern, beim Ausloggen SessionStorage clearen
+
+    let user = JSON.parse(sessionStorage.getItem('user'));
+    document.getElementById('username').innerHTML = 'Hallo ' + user.nickname;
+
+    function logout() {
+        sessionStorage.clear();
+        window.open('index.html', '_self');
+    }
+
+    //#endregion
+
+
+
+</script>
+
+</html>

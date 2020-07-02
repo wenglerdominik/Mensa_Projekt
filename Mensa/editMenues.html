@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <!-- Material Design Icons-->
+    <link rel="stylesheet" href="css/materialdesignicons.min.css" />
+
+    <!-- meine Einstellungen -->
+
+    <link rel="stylesheet" href="css/app.css" />
+
+    <!--Start script-->
+    <script src="js/app.js"></script>
+    <title>Menüverwaltung</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon-32x32.png">
+    <script>
+
+
+    </script>
+</head>
+
+<body class="body-bg-editMenue ">
+    <div class="d-flex" id="wrapper">
+        <div class=" text-white border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">
+                <div>
+                    <a class="nav-textHeader" href="startpage.html"><img class="logo" src="images/logo.png">PrintTech
+                        3D</a>
+                </div>
+                <div class="mt-2">
+                    <span id="sidebarHeaderRole"></span>
+                </div>
+            </div>
+            <hr style="border-color: whitesmoke;">
+            <ul class="list-group list-group-flush" id="sidebarItemList">
+
+
+
+
+            </ul>
+        </div>
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+                <button class="btn bg-nav" id="menu-toggle"><span class="navbar-toggler-icon"></span></button>
+
+                <button type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    class="btn btn-secondary dropdown-toggle ml-auto" style="color: whitesmoke;"><span
+                        id="username">Name</span></button>
+                <ul class="dropdown-menu dropdown-menu-right mt-2">
+                    <li class="px-3 py-2">
+                        <form class="needs-validation" novalidate>
+
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary btn-block" id="btnLogout">Abmelden</button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+            <div class="container mb-2 mt-2">
+                <div class="text-center">
+                    <h1 id="headerPreview" class="white mb-3">Menü Vorschau</h1>
+                </div>
+
+                <div class="card-deck opacity-0_9 mt-4">
+                    <div id="cardVegan" class="card cardMenueView active">
+                        <div class="card-header" style="background-color: green; color: white;">
+                            <span id="viewHeaderVegan">Vegan:</span>
+                        </div>
+                        <div class="card-body">
+                            <ul id="viewVorVegan">
+                            </ul>
+                            <ul id="viewHauptVegan">
+                            </ul>
+                            <ul id="viewNachVegan">
+                            </ul>
+                        </div>
+                        <div class="card-footer" id="viewFooterVegan">
+                            0 kCal / 0.00 €
+                        </div>
+                    </div>
+                    <div id="cardN1" class="card cardMenueView">
+                        <div class="card-header" style="background-color: darkred; color: white;">
+                            <span id="viewHeaderN1">Normal:</span>
+                        </div>
+                        <div class="card-body">
+                            <ul id="viewVorN1">
+                            </ul>
+                            <ul id="viewHauptN1">
+                            </ul>
+                            <ul id="viewNachN1">
+                            </ul>
+                        </div>
+                        <div class="card-footer" id="viewFooterN1">
+                            0 kCal / 0.00 €
+                        </div>
+                    </div>
+                    <div id="cardN2" class="card cardMenueView">
+                        <div class="card-header" style="background-color: darkred; color: white;">
+                            <span id="viewHeaderN2">Normal:</span>
+                        </div>
+                        <div class="card-body">
+                            <ul id="viewVorN2">
+                            </ul>
+                            <ul id="viewHauptN2">
+                            </ul>
+                            <ul id="viewNachN2">
+                            </ul>
+                        </div>
+                        <div class="card-footer" id="viewFooterN2">
+                            0 kCal / 0.00 €
+                        </div>
+                    </div>
+                    <div id="cardSuess" class="card cardMenueView">
+                        <div class="card-header" style="background-color: goldenrod; color: black; font-weight: 700;">
+                            <span id="viewHeaderSuess">Süßspeise:</span>
+                        </div>
+                        <div class="card-body">
+                            <ul id="viewVorSuess">
+                            </ul>
+                            <ul id="viewHauptSuess">
+                            </ul>
+                            <ul id="viewNachSuess">
+                            </ul>
+                        </div>
+                        <div class="card-footer" id="viewFooterSuess">
+                            0 kCal / 0.00 €
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="container mt-4">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h1 class="white">Produkte auswählen</h1>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-success" id="btnSaveMenue">Menüs
+                            speichern</button>
+                    </div>
+                </div>
+                <div class="accordion mt-2 opacity-0_9" id="accordionExample">
+                    <div class="card cardMenueSelect">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <h5>Veganes Menü</h5>
+                                </button>
+                            </h2>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="row editMenue" id="menueVegan">
+                                    <div class="col-12 col-sm-4" id="vorspeisevegan">
+                                        <label>Vorspeisen</label>
+
+                                    </div>
+                                    <div class="col-12 col-sm-4" id="hauptspeisevegan">
+                                        <label>Hauptspeisen</label>
+
+                                    </div>
+                                    <div class="col-12 col-sm-4" id="nachspeisevegan">
+                                        <label>Nachspeisen</label>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card cardMenueSelect">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <h5>Normales Menü</h5>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="row editMenue" id="menueNormal1">
+                                    <div class="col-12 col-sm-4" id="vorspeiseN1">
+                                        <label>Vorspeisen</label>
+
+                                    </div>
+                                    <div class="col-12 col-sm-4" id="hauptspeiseN1">
+                                        <label>Hauptspeisen</label>
+
+                                    </div>
+                                    <div class="col-12 col-sm-4" id="nachspeiseN1">
+                                        <label>Nachspeisen</label>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card cardMenueSelect">
+                        <div class="card-header" id="headingTwo">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <h5>Normales Menü</h5>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="row editMenue" id="menueNormal2">
+                                    <div class="col-12 col-sm-4" id="vorspeiseN2">
+                                        <label>Vorspeisen</label>
+
+                                    </div>
+                                    <div class="col-12 col-sm-4" id="hauptspeiseN2">
+                                        <label>Hauptspeisen</label>
+
+                                    </div>
+                                    <div class="col-12 col-sm-4" id="nachspeiseN2">
+                                        <label>Nachspeisen</label>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card cardMenueSelect">
+                        <div class="card-header" id="headingFour">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                    data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    <h5>Süßspeisen Menü</h5>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                            data-parent="#accordionExample">
+                            <div class="card-body">
+                                <div class="row editMenue" id="menueSuess">
+                                    <div class="col-12 col-sm-4" id="vorspeisesuess">
+                                        <label>Vorspeisen</label>
+
+                                    </div>
+                                    <div class="col-12 col-sm-4" id="hauptspeisesuess">
+                                        <label>Hauptspeisen</label>
+
+                                    </div>
+                                    <div class="col-12 col-sm-4" id="nachspeisesuess">
+                                        <label>Nachspeisen</label>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="modalNoChange" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="my-modal-title">Information</h5>
+                            <button class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Es gibt keine Änderungen in den Menüs!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="modalErrorOnSave" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title mdi mdi-alert-circle" id="my-modal-title">Fehler beim Speichern</h5>
+                            <button class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Versuchen Sie es erneut.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="module" src="./js/editMenues.js"></script>
+
+
+</body>
+
+
+</html>

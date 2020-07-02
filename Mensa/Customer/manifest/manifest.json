@@ -1,0 +1,28 @@
+{
+    "name": "PrintTECH 3D",
+    "short_name": "PT-3D",
+    "background_color": "black",
+    "theme_color": "#32C4FC",
+    "icons": [
+        {
+            "src": "../logo/logo_120x120.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "../logo/logo_144x144.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "../logo/logo.png",
+            "sizes": "456x408",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "../index.html",
+    "display": "fullscreen",
+    "orientation": "portrait",
+    "related_applications": [],
+    "prefer_related_applications": true
+}

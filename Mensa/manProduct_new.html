@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <script src="js/popper.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+    <!-- Bootstrap Table -->
+    <link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table-locale-all.min.js"></script>
+    <script
+        src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+
+
+    <!-- Material Design Icons-->
+    <link rel="stylesheet" href="css/materialdesignicons.min.css" />
+
+    <!-- meine Einstellungen -->
+
+    <link rel="stylesheet" href="css/app.css" />
+
+
+    <!--Start script-->
+    <script src="js/app.js"></script>
+    <title>Produktverwaltung</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon-32x32.png">
+
+
+    <script>
+
+
+    </script>
+</head>
+
+<body class="body-bg">
+
+    <div class="d-flex" id="wrapper">
+        <div class=" text-white border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">
+                <div>
+                    <a class="nav-textHeader" href="startpage.html"><img class="logo" src="images/logo.png">PrintTech
+                        3D</a>
+                </div>
+                <div class="mt-2">
+                    <span id="sidebarHeaderRole"></span>
+                </div>
+            </div>
+            <hr style="border-color: whitesmoke;">
+            <ul class="list-group list-group-flush" id="sidebarItemList">
+
+
+            </ul>
+        </div>
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+                <button class="btn bg-nav" id="menu-toggle"><span class="navbar-toggler-icon"></span></button>
+
+                <button type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    class="btn btn-secondary dropdown-toggle ml-auto" style="color: whitesmoke;"><span
+                        id="username">Name</span></button>
+                <ul class="dropdown-menu dropdown-menu-right mt-2">
+                    <li class="px-3 py-2">
+                        <form class="needs-validation" novalidate>
+
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary btn-block" id="btnLogout">Abmelden</button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+
+
+            <div class="container containerTable mt-4 ">
+                <div class="col pt-2">
+                    <h1 class="text-center">Produkt Verwaltung</h1>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="input-group">
+                            <button style="padding-top: 0.1rem; padding-bottom: 0.1rem;" type="button"
+                                class="btn btn-success" data-toggle="modal" id="btnNewProduct"
+                                data-target="#modalProduct"> Neues Produkt
+                                <span style="vertical-align: middle; font-size: 1.5rem;"
+                                    class="mdi mdi-plus-circle-outline"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- <div class="row mt-2">
+                        <div class="col-12 col-sm-4">
+                            <label>Filtern nach Produktart</label>
+                            <select id="productTypeSel" class="form-control form-control-sm"></select>
+
+                        </div>
+                        <div class="col-12 col-sm-8">
+                            <label>Suche (alle Produkte)</label>
+                            <input type="text" class="form-control form-control-sm" id="inputSearch">
+                        </div>
+                    </div> -->
+                </div>
+                <table class="table myTable table-responsive-sm" id="tableProducts" data-pagination="true"
+                    data-page-list="[10, 25, 50, 100, all]" data-icons-prefix="mdi" data-search="true">
+                    <thead class="thead-dark">
+                        <tr>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+                <div class="container mt-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- <table class="table table-light table-hover table-responsive-sm">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Produktname</th>
+                                        <th>Beschreibung</th>
+                                        <th>Produktart</th>
+                                        <th>Kalorien</th>
+                                        <th>Preis €</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody">
+
+                                </tbody>
+                                <tfoot>
+
+                                </tfoot>
+                            </table> -->
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="modalProduct" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog " role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 id="modalHeader"></h5>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Produktname</label>
+                                        <input id="productName" class="form-control form-control-sm" type="text"
+                                            name="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="my-input">Beschreibung</label>
+                                        <input id="productDescription" class="form-control form-control-sm" type="text"
+                                            name="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="my-input">Produktart</label>
+                                        <select id="productType" class="form-control form-control-sm" type="text">
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="my-input">Kalorien</label>
+                                        <input id="productCalorie" class="form-control form-control-sm" type="number">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-4">
+                                    <div class="form-group">
+                                        <label for="my-input">Preis</label>
+                                        <input id="productPrice" class="form-control form-control-sm" type="number"
+                                            min="0.01" step="0.01"
+                                            onkeyup="if(this.value<0){this.value= this.value * -1}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-10">
+                                    <div id="divUpload" class="custom-file" style="display: none;">
+                                        <input id="upload" type="file" class="form-control border-0">
+                                        <label id="labelupload" class="custom-file-label" for="upload">Optional Bild
+                                            hinzufügen</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <img id="image" style="width: auto; height: 300px; visibility: hidden;" src=""
+                                        class="img-fluid" alt="Produktbild">
+                                </div>
+
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <label id="lblState"> </label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer bg-dark">
+                            <button id="btnCancel" type="button" class="btn btn-light mx-auto"
+                                data-dismiss="modal">Abbrechen</button>
+                            <button id="btnSave" type="button" class="btn btn-success mx-auto"
+                                disabled="true">Speichern</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script type="module" src="js/product_new.js"></script>
+</body>
+<script>
+
+
+
+
+
+</script>
+
+</html>

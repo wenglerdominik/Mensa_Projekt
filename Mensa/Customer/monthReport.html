@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+
+    <!-- Material Design Icons-->
+    <link rel="stylesheet" href="../css/materialdesignicons.min.css" />
+    <script type="module" src="./js/app.js"></script>
+    <!-- meine Einstellungen -->
+
+    <link rel="stylesheet" href="../css/app.css" />
+    <link rel="stylesheet" href="style.css" />
+
+
+    <title>Bestellungen</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon/favicon-32x32.png">
+    <link rel="manifest" href="./manifest/manifest.json">
+	<link rel="apple-touch-icon" sizes="120x120" href="./logo/logo_120x120.png">
+
+    <!-- Bootstrap Table -->
+    <link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table-locale-all.min.js"></script>
+    <script
+        src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <script src="./mobile/bootstrap-table-mobile.js"></script>
+
+</head>
+
+<body class="bodyApp">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+        <a class="navbar-brand mr-1" href="month.html"> <img class="logo" src="../images/logo.png" alt=""></a>
+
+        <li class="nav-item dropdown order-lg-2 " style="top: -10px;">
+            <a id="username" class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <p id="usernumber" class="dropdown-item">Action</p>
+                <div class="dropdown-divider"></div>
+                <a id="btnLogout" class="dropdown-item" href="#">Abmelden</a>
+            </div>
+        </li>
+        <button type="button" class="btn p-0 pr-2 mr-1 order-lg-1" style="color: white;"
+            onclick="window.location.href='message.html'">
+            <i style="font-size: 1.5rem;" class="mdi mdi-email"></i>
+            <span id="notificationcount" style="top: -5px;" class="badge badge-light">0</span>
+        </button>
+
+        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto" id="ulNav">
+                <li class="nav-item ">
+                    <a class="nav-link App" href="month.html">Menü Kalender</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link App" href="monthReport.html">Bestellungen</a>
+                </li>
+                <!---->
+            </ul>
+
+        </div>
+    </nav>
+
+    <header>
+        <h5 class="text-center">Meine Bestellungen</h5>
+    </header>
+    <main>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-12 col-sm-4">
+                    <div class="form-group">
+                        <!-- <label for="my-input">Wählen Sie das Monat aus</label> -->
+                        <input type="text" readonly class="form-control" id="selectDate" placeholder="Monat wählen">
+                    </div>
+                </div>
+                <div class="col-12 col-sm-4 sm-pt0_5">
+                    <div class="form-check">
+                        <input id="chkConsumed" class="form-check-input" type="checkbox" name="" value="false">
+                        <label for="chkConsumed" class="form-check-label">Zeige offene Bestellungen</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container pb-3" id="containerTable">
+            <!-- <table class="table myTable table-responsive-sm table-striped" style="background-color: white;">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>€</th>
+                        <th>Datum</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+
+
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th id="totalCost"></th>
+                    </tr>
+                </tfoot>
+            </table> -->
+
+            <div>
+                <p class="mt-2 text-center" id="totalCostMobile"></p>
+            </div>
+            <table class="myTable mobile" id="tableOrders" data-pagination="true" data-icons-prefix="mdi"
+                style="background-color: white;">
+                <thead class="thead-dark">
+                    <tr>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+        </div>
+        <div>
+            <h1 id="offlinereport"></h1>
+        </div>
+
+
+        <div id="modalInfo" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="my-modal-title">Details</h5>
+                        <button class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modalInfoBody">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <div id="modalDate" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Monat wählen</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class=" container mt-4 pl-0 pr-0" id="containerCalender">
+                        <div class="year">
+                            <ul>
+                                <li class="prev" id="prevYear">&#10094;</li>
+                                <li class="next" id="nextYear">&#10095;</li>
+                                <li id="calendar-head-year">Jahr</li>
+                            </ul>
+                        </div>
+                        <table class="table table-bordered" id="Calendar">
+                            <tbody id="calendar-body">
+                                <tr class="year-tr">
+                                    <td id="0">Jan</td>
+                                    <td id="1">Feb</td>
+                                    <td id="2">Mär</td>
+                                    <td id="3">Apr</td>
+                                </tr>
+                                <tr class="year-tr">
+                                    <td id="4">Mai</td>
+                                    <td id="5">Jun</td>
+                                    <td id="6">Jul</td>
+                                    <td id="7">Aug</td>
+                                </tr>
+                                <tr class="year-tr">
+                                    <td id="8">Sep</td>
+                                    <td id="9">Okt</td>
+                                    <td id="10">Nov</td>
+                                    <td id="11">Dez</td>
+                                </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/monthReport.js"></script>
+</body>
+<script>
+
+
+
+</script>
+
+</html>

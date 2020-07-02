@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!-- Bootstrap -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<script src="js/popper.min.js"></script>
+	<script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+
+	<!-- Material Design Icons-->
+	<link rel="stylesheet" href="css/materialdesignicons.min.css" />
+
+	<!-- meine Einstellungen -->
+	<script src="js/cal.js"></script>
+	<link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="fullcal/core/main.css"/>
+    <link rel="stylesheet" href="fullcal/daygrid/main.css">
+    <script src="fullcal/core/main.js"></script>
+    <script src="fullcal/daygrid/main.js"></script>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('calendar');
+  
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: [ 'dayGrid' ]
+          });
+  
+          calendar.render();
+        });
+  
+      </script>
+
+</head>
+
+<body style="background-color: #E6E6E6;">
+	<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+		<a class="navbar-brand" href="index.html"> <img class="logo" src="images/logo.png" alt=""></a>
+
+		<button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div id="my-nav" class="collapse navbar-collapse">
+			<ul class="navbar-nav mr-auto" id="ulNav">
+
+				<li class="nav-item">
+					<a class="nav-link" href="menue.html">Speiseplan</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" href="">Kalender</a>
+				</li>
+
+			</ul>
+			<ul class="nav navbar-nav flex-row justify-content-between ml-auto">
+				<li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="settings"><i
+							class="fa fa-cog fa-fw fa-lg"></i></a></li>
+				<li class="dropdown order-1">
+					<button type="button" id="dropdownMenu1" data-toggle="dropdown"
+						class="btn btn-outline-secondary dropdown-toggle" style="color: whitesmoke;">Benutzer <span
+							class="caret"></span></button>
+					<ul class="dropdown-menu dropdown-menu-right mt-2">
+						<li class="px-3 py-2">
+							<form class="needs-validation" novalidate>
+
+								<div class="form-group">
+									<a class="btn btn-primary btn-block" href="index.html">Abmelden</a>
+								</div>
+
+							</form>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+    
+    <div id='calendar'></div>
+
+
+
+
+
+
+</body>
+
+</html>

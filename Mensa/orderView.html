@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/jquery-3.4.1.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+
+
+    <!-- Material Design Icons-->
+    <link rel="stylesheet" href="./css/materialdesignicons.min.css" />
+
+
+
+    <!--Start script-->
+    <script src="./js/app.js"></script>
+
+
+    <!-- Bootstrap Table -->
+    <link href="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.css" rel="stylesheet">
+
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table-locale-all.min.js"></script>
+    <script
+        src="https://unpkg.com/bootstrap-table@1.16.0/dist/extensions/export/bootstrap-table-export.min.js"></script>
+
+    <!-- meine Einstellungen -->
+
+    <link rel="stylesheet" href="./css/app.css" />
+    <title>Menü Ausgabe</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon/favicon-32x32.png">
+
+</head>
+
+<body class="body-bg">
+    <div class="d-flex" id="wrapper">
+        <div class=" text-white border-right" id="sidebar-wrapper">
+            <div class="sidebar-heading">
+                <div>
+                    <a class="nav-textHeader" href="startpage.html"><img class="logo" src="./images/logo.png">PrintTech
+                        3D</a>
+                </div>
+                <div class="mt-2">
+                    <span id="sidebarHeaderRole"></span>
+                </div>
+
+            </div>
+
+            <hr style="border-color: whitesmoke;">
+            <ul class="list-group list-group-flush" id="sidebarItemList">
+
+
+
+
+            </ul>
+        </div>
+        <div id="page-content-wrapper">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+                <button class="btn bg-nav" id="menu-toggle"><span class="navbar-toggler-icon"></span></button>
+
+                <button type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    class="btn btn-secondary dropdown-toggle ml-auto" style="color: whitesmoke;"><span
+                        id="username">Name</span></button>
+                <ul class="dropdown-menu dropdown-menu-right mt-2">
+                    <li class="px-3 py-2">
+                        <form class="needs-validation" novalidate>
+
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary btn-block" id="btnLogout">Abmelden</button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+
+            <header>
+
+            </header>
+            <main>
+
+                <div id="modalSetLocation" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static"
+                    aria-labelledby="my-modal-title" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="my-modal-title">Wählen Sie Ihren Arbeitsplatz aus</h5>
+
+                            </div>
+                            <div id="modalSetLocationBody" class="modal-body">
+
+                            </div>
+                            <div class="modal-footer">
+                                <button id="btnSetLocation" type="button" class="btn btn-success">Weiter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container containerTable mb-2 p-2 mt-4">
+                    <div class="row">
+                        <div class="col-3 offset-1">
+
+                            <h5 id="headerDate"></h5>
+                        </div>
+                        <div class="col-3 text-center">
+                            <button id="btnSellProduct" type="button" class="btn btn-info">Zusatzprodukt
+                                verkaufen</button>
+                        </div>
+                        <div class="col-3 offset-1 text-right">
+                            <h5 id="headerLocationName"></h5>
+                        </div>
+                    </div>
+                    <div id="modalSellProduct" class="modal fade " tabindex="-1" role="dialog"
+                        aria-labelledby="my-modal-title" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="my-modal-title">Zusatzprodukt verkaufen</h5>
+                                    <button class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <table class="table  myTable" data-search="true" id="tableSellUser"
+                                        data-icons-prefix="mdi">
+                                        <thead class="thead-dark">
+                                            <tr>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+
+                                    <table class="table  myTable" data-search="true" id="tableSellProducts"
+                                        data-icons-prefix="mdi">
+                                        <thead class="thead-dark">
+                                            <tr>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="btnOrderAdditional" disabled=true type="button"
+                                        class="btn btn-success">Bestätigung</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container containerTable pb-3">
+                    <table class="table myTable " data-search="true" id="tableOrder" data-icons-prefix="mdi"
+                        data-detail-view-icon="true" data-detail-view="true" data-detail-view-by-click="true"
+                        data-pagination="true" data-page-list="[10, 25, 50, 100, all]">
+                        <thead class="thead-dark">
+                            <tr>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+                </div>
+            </main>
+
+
+        </div>
+    </div>
+
+
+
+
+    <script type="module" src="./js/orderView.js"></script>
+
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Material Design Icons-->
+    <link rel="stylesheet" href="../css/materialdesignicons.min.css" />
+
+    <script type="module" src="./js/app.js"></script>
+    <!-- meine Einstellungen -->
+
+    <link rel="stylesheet" href="../css/app.css" />
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Tagesmenüs</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon/favicon-32x32.png">
+	<link rel="manifest" href="./manifest/manifest.json">
+	<link rel="apple-touch-icon" sizes="120x120" href="./logo/logo_120x120.png">
+</head>
+
+<body class="bodyApp">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand mr-1" href="month.html"> <img class="logo" src="../images/logo.png" alt=""></a>
+
+        <li class="nav-item dropdown order-lg-2 " style="top: -10px;">
+            <a id="username" class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <p id="usernumber" class="dropdown-item">Action</p>
+                <div class="dropdown-divider"></div>
+                <a id="btnLogout" class="dropdown-item" href="#">Abmelden</a>
+            </div>
+        </li>
+        <button type="button" class="btn p-0 pr-2 mr-1 order-lg-1" style="color: white;"
+            onclick="window.location.href='message.html'">
+            <i style="font-size: 1.5rem;" class="mdi mdi-email"></i>
+            <span id="notificationcount" style="top: -5px;" class="badge badge-light">0</span>
+        </button>
+        <button class="navbar-toggler" data-target="#my-nav" data-toggle="collapse" aria-controls="my-nav"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="my-nav" class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto" id="ulNav">
+                <li class="nav-item ">
+                    <a class="nav-link App" href="month.html">Menü Kalender</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link App" href="monthReport.html">Bestellungen</a>
+                </li>
+                <!---->
+            </ul>
+        </div>
+    </nav>
+
+
+    <div id="containerCalender" class="container">
+        <div class="text-center mb-2">
+            <button id="btnBackToMonth" type="button" class="btn btn-outline-primary text-center mt-2">Zurück zur
+                Monatsübersicht</button>
+        </div>
+
+        <div class="month day" style="position: -webkit-sticky; position: sticky; top: 5px; z-index: 99;">
+            <ul>
+                <li class="prev" id="prevDay">&#10094;</li>
+                <li class="next" id="nextDay">&#10095;</li>
+                <li id="calendar-head-day">asf<br>
+                    <span style="font-size:18px">2017</span>
+                </li>
+            </ul>
+        </div>
+        <table class="table" id="Calendar">
+            <tbody id="calendar-body" style="background-color: transparent;">
+                <tr>
+
+                </tr>
+            </tbody>
+
+            </tfoot>
+        </table>
+    </div>
+
+
+
+
+
+
+
+    <script type="module" src="./js/day.js"></script>
+
+</body>
+<script>
+
+
+
+</script>
+
+</html>
